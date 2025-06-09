@@ -6,14 +6,9 @@ function App() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    // NOTE: API-Football endpoint for fixtures
-    const url = "https://v3.football.api-sports.io/fixtures";
-    fetch(url, {
-      method: "GET",
-      headers: {
-        "x-apisports-key": "ad421a8289a3eb425aab97578a8cf214",
-      },
-    })
+    // Use Vercel proxy endpoint
+    const url = "/api/fixtures";
+    fetch(url)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch");
         return res.json();
